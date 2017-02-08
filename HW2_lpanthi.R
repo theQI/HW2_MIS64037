@@ -10,6 +10,10 @@ list.files(".")
 
 # Read this file using the read.csv and save it as a collegedata object. Change it to a tibble data frame.
 CollegeScorecard <- read.csv("HW2.csv",na.strings = c("NULL","PrivacySuppressed"))
-library(tibble) # load the library required for tbl_df function
+library(dplyr) #loading the dplyr library just in case
+library(tibble) #load the library required for tbl_df function
 CS <- tbl_df(CollegeScorecard) #save the data frame as a new CS object.
 dim(CS) #check the dimension of the data frame.
+CS_1 <- CS[sapply(CS, is.numeric)] #create a new dataframe CS_1 with only numeric values from CS
+attach(CS_1)
+cor(CS_1)
