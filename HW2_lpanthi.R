@@ -15,5 +15,5 @@ library(tibble) #load the library required for tbl_df function
 CS <- tbl_df(CollegeScorecard) #save the data frame as a new CS object.
 dim(CS) #check the dimension of the data frame.
 CS_1 <- CS[sapply(CS, is.numeric)] #create a new dataframe CS_1 with only numeric values from CS
-attach(CS_1)
-cor(CS_1)
+attach(CS_1) #attach file to use the columns
+cor(CS_1) #for the preliminary correlation analysis
